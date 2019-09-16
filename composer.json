@@ -11,11 +11,15 @@
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "6.0.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "laravelcollective/html": "^6.0",
+        "medusaapp/personality": "^0.1.0",
+        "pragmarx/countries-laravel": "^0.6.2"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
+        "laravel/ui": "^1.0",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^8.0"
@@ -57,5 +61,11 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:MedusaApp/Personality.git"
+        }
+    ]
 }

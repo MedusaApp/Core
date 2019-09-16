@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Personality\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Silber\Bouncer\Database\HasRolesAndAbilities;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasRolesAndAbilities;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +17,20 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'address_1',
+        'address_2',
+        'city',
+        'state_province',
+        'postal_code',
+        'dob',
+        'email',
+        'password',
+        'application_date',
+        'registration_date',
+        'membership_status',
     ];
 
     /**
