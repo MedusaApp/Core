@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('state_province');
             $table->string('postal_code');
+            $table->string('telephone');
             $table->dateTime('application_date');
             $table->dateTime('registration_date');
             $table->enum('membership_status', ['active', 'denied', 'suspended']);

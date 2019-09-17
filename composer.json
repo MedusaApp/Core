@@ -10,9 +10,9 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
-        "laravel/framework": "6.0.*",
+        "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
-        "laravelcollective/html": "^6.0",
+        "laravelcollective/html": "^5.8",
         "medusaapp/personality": "^0.1.0",
         "pragmarx/countries-laravel": "^0.6.2"
     },

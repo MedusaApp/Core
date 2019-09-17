@@ -27,6 +27,7 @@ class User extends Authenticatable
         'postal_code',
         'dob',
         'email',
+        'telephone',
         'password',
         'application_date',
         'registration_date',
