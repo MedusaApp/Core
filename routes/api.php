@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/*
+  Public API Routes
+*/
+Route::group(['prefix' => 'v1'], function(){
+    Route::get('states/{cca3}')->uses('ApiController@getStates');
+});
