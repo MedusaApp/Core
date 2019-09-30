@@ -68,7 +68,7 @@
         {
             "type": "git",
             "url": "git@github.com:MedusaApp/Personality.git"
-        }
+        },
         {
             "type": "git",
             "url": "git@github.com:MedusaApp/Registration.git"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a730c33312f77d3f18de68140c873c56",
+    "content-hash": "fc3d6e0f3d4826f442d0b1001ff5e599",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -1082,10 +1082,10 @@
         {
             "name": "medusaapp/auth",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "../core-auth",
-                "reference": "fb9b91017702125dba8afed4c011a75f9ab3dd0c"
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/Auth.git",
+                "reference": "bee6a2a08c81df7d6791636edc63fcc3d7977f56"
             },
             "require": {
                 "illuminate/auth": "6.0.*"
@@ -1106,17 +1106,15 @@
                 }
             ],
             "description": "MEDUSA Core User model",
-            "transport-options": {
-                "symlink": true
-            }
+            "time": "2019-09-30T16:52:05+00:00"
         },
         {
             "name": "medusaapp/database",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "../core-database",
-                "reference": "c466ab99ca84f36ca32ef25162c8c63f14a84cc7"
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/Database.git",
+                "reference": "149c378b28909b124ab0c6d6f0362e4e0a29e6b7"
             },
             "require": {
                 "illuminate/database": "6.0.*"
@@ -1137,17 +1135,15 @@
                 }
             ],
             "description": "MEDUSA Core Database model",
-            "transport-options": {
-                "symlink": true
-            }
+            "time": "2019-09-30T16:52:44+00:00"
         },
         {
             "name": "medusaapp/personality",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "../core-personality",
-                "reference": "8f1bf50186a118fc80b50edf48bc7e13f0472a1e"
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/Personality.git",
+                "reference": "f767737297862ce7d97082de95bf7aa79ccb2ffd"
             },
             "require": {
                 "medusaapp/auth": "dev-master",
@@ -1167,17 +1163,15 @@
                 }
             ],
             "description": "Basic personality module for MEDUSA Core",
-            "transport-options": {
-                "symlink": true
-            }
+            "time": "2019-09-30T16:50:04+00:00"
         },
         {
             "name": "medusaapp/public",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "../core-public-assets",
-                "reference": "6d58715f4c7cde2e0308991e440f2cacb730a5b4"
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/Public.git",
+                "reference": "2af1ec25baed32252e35f470408d1a6f94941d09"
             },
             "require": {
                 "illuminate/support": "6.0.*"
@@ -1205,17 +1199,15 @@
                 }
             ],
             "description": "MEDUSA Core public assets (images, css and js)",
-            "transport-options": {
-                "symlink": true
-            }
+            "time": "2019-09-30T16:47:41+00:00"
         },
         {
             "name": "medusaapp/registration",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "../core-registration",
-                "reference": "a4dbc5621e447dced8d41628d44377fd434a38a8"
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/Registration.git",
+                "reference": "240fe93ccb69369496e5b2434ede6edf34faaf50"
             },
             "require": {
                 "illuminate/auth": "6.0.*"
@@ -1236,17 +1228,15 @@
                 }
             ],
             "description": "Registration traits for MEDUSA Core Simple Personality Package",
-            "transport-options": {
-                "symlink": true
-            }
+            "time": "2019-09-30T16:48:13+00:00"
         },
         {
             "name": "medusaapp/views",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "../core-views",
-                "reference": "658280a02b19370de561e69b106cd700036f9cb2"
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/Views.git",
+                "reference": "83acfe98d9e958655683aa60e07dab64440d9db2"
             },
             "require": {
                 "illuminate/support": "6.0.*",
@@ -1276,9 +1266,7 @@
                     "email": "david.l.weiner30030@gmail.com"
                 }
             ],
-            "transport-options": {
-                "symlink": true
-            }
+            "time": "2019-09-30T16:48:39+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -5409,16 +5397,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "4eff936d83eb809bde2c57a3cea0ee9643769031"
+                "reference": "b3453f75fd23d9fd41685f2148f4abeacabc6405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/4eff936d83eb809bde2c57a3cea0ee9643769031",
-                "reference": "4eff936d83eb809bde2c57a3cea0ee9643769031",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/b3453f75fd23d9fd41685f2148f4abeacabc6405",
+                "reference": "b3453f75fd23d9fd41685f2148f4abeacabc6405",
                 "shasum": ""
             },
             "require": {
@@ -5432,7 +5420,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -5470,7 +5458,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2019-08-07T15:01:07+00:00"
+            "time": "2019-09-30T08:30:27+00:00"
         },
         {
             "name": "myclabs/deep-copy",
