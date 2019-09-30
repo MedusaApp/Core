@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
-            $table->string('suffix');
+            $table->string('suffix')->nullable()->default(null);
             $table->string('address_1');
             $table->string('address_2');
             $table->string('city');
@@ -27,8 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('country', 3);
             $table->string('telephone');
             $table->dateTime('application_date');
-            $table->dateTime('registration_date');
-            $table->enum('membership_status', ['active', 'denied', 'suspended']);
+            $table->dateTime('registration_date')->nullable();
+            $table->enum('membership_status', ['pending', 'active', 'denied', 'suspended']);
             $table->date('dob');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
