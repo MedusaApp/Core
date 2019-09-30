@@ -66,46 +66,28 @@
     },
     "repositories": [
         {
-            "type": "path",
-            "url": "../core-personality",
-            "options": {
-                "symlink": true
-            }
+            "type": "git",
+            "url": "git@github.com:MedusaApp/Personality.git"
+        }
+        {
+            "type": "git",
+            "url": "git@github.com:MedusaApp/Registration.git"
         },
         {
-            "type": "path",
-            "url": "../core-auth",
-            "options": {
-                "symlink": true
-            }
+            "type": "git",
+            "url": "git@github.com:MedusaApp/Views.git"
         },
         {
-            "type": "path",
-            "url": "../core-views",
-            "options": {
-                "symlink": true
-            }
+            "type": "git",
+            "url": "git@github.com:MedusaApp/Auth.git"
         },
         {
-            "type": "path",
-            "url": "../core-registration",
-            "options": {
-                "symlink": true
-            }
+            "type": "git",
+            "url": "git@github.com:MedusaApp/Database.git"
         },
         {
-            "type": "path",
-            "url": "../core-database",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "../core-public-assets",
-            "options": {
-                "symlink": true
-            }
+            "type": "git",
+            "url": "git@github.com:MedusaApp/Public.git"
         }
     ]
 }
