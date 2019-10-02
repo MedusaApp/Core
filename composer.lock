@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fad8d249a77a7e15393fd21b3c35d19d",
+    "content-hash": "06eeccf5f74aded7d0f9dc3d26c43464",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -721,16 +721,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.0.4",
+            "version": "v6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "372e0add8a58e0e3deb78f87cbb2dc40d3e0ff08"
+                "reference": "a365bea7ff0dea9a50f5904be9e41656def9af4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/372e0add8a58e0e3deb78f87cbb2dc40d3e0ff08",
-                "reference": "372e0add8a58e0e3deb78f87cbb2dc40d3e0ff08",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a365bea7ff0dea9a50f5904be9e41656def9af4b",
+                "reference": "a365bea7ff0dea9a50f5904be9e41656def9af4b",
                 "shasum": ""
             },
             "require": {
@@ -826,7 +826,7 @@
                 "league/flysystem-sftp": "Required to use the Flysystem SFTP driver (^1.0).",
                 "moontoast/math": "Required to use ordered UUIDs (^1.1).",
                 "pda/pheanstalk": "Required to use the beanstalk queue driver (^4.0).",
-                "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (^3.0).",
+                "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (^4.0).",
                 "symfony/cache": "Required to PSR-6 cache bridge (^4.3.4).",
                 "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^1.2).",
                 "wildbit/swiftmailer-postmark": "Required to use Postmark mail driver (^3.0)."
@@ -862,7 +862,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-09-24T13:40:36+00:00"
+            "time": "2019-10-01T13:55:56+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -929,28 +929,28 @@
         },
         {
             "name": "laravelcollective/html",
-            "version": "v6.0.2",
+            "version": "v6.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "2f181aba73390eec13d398bf57877b1cc3bc2588"
+                "reference": "bcc317d21a7e04eebcc81c4109fa84feaab63590"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/2f181aba73390eec13d398bf57877b1cc3bc2588",
-                "reference": "2f181aba73390eec13d398bf57877b1cc3bc2588",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/bcc317d21a7e04eebcc81c4109fa84feaab63590",
+                "reference": "bcc317d21a7e04eebcc81c4109fa84feaab63590",
                 "shasum": ""
             },
             "require": {
-                "illuminate/http": "6.0.*",
-                "illuminate/routing": "6.0.*",
-                "illuminate/session": "6.0.*",
-                "illuminate/support": "6.0.*",
-                "illuminate/view": "6.0.*",
+                "illuminate/http": "^6.0",
+                "illuminate/routing": "^6.0",
+                "illuminate/session": "^6.0",
+                "illuminate/support": "^6.0",
+                "illuminate/view": "^6.0",
                 "php": ">=7.2"
             },
             "require-dev": {
-                "illuminate/database": "6.0.*",
+                "illuminate/database": "^6.0",
                 "mockery/mockery": "~1.0",
                 "phpunit/phpunit": "~7.1"
             },
@@ -993,7 +993,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "https://laravelcollective.com",
-            "time": "2019-09-23T06:16:50+00:00"
+            "time": "2019-10-02T00:37:39+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1085,10 +1085,10 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Auth.git",
-                "reference": "bee6a2a08c81df7d6791636edc63fcc3d7977f56"
+                "reference": "4ca075534ad4caf87cec91bc33391cc92f363909"
             },
             "require": {
-                "illuminate/auth": "6.0.*"
+                "illuminate/auth": "^6.0"
             },
             "type": "library",
             "autoload": {
@@ -1106,7 +1106,7 @@
                 }
             ],
             "description": "MEDUSA Core User model",
-            "time": "2019-09-30T16:52:05+00:00"
+            "time": "2019-10-02T01:28:36+00:00"
         },
         {
             "name": "medusaapp/database",
@@ -1114,10 +1114,10 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Database.git",
-                "reference": "149c378b28909b124ab0c6d6f0362e4e0a29e6b7"
+                "reference": "7f517df5cedc76abdac945b90df7fff50bb52ad4"
             },
             "require": {
-                "illuminate/database": "6.0.*"
+                "illuminate/database": "^6.0"
             },
             "type": "library",
             "autoload": {
@@ -1135,7 +1135,7 @@
                 }
             ],
             "description": "MEDUSA Core Database model",
-            "time": "2019-09-30T16:52:44+00:00"
+            "time": "2019-10-02T01:28:13+00:00"
         },
         {
             "name": "medusaapp/personality",
@@ -1171,10 +1171,10 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Public.git",
-                "reference": "2af1ec25baed32252e35f470408d1a6f94941d09"
+                "reference": "9a94e1d17499d6f297a6300d06c7156b562276df"
             },
             "require": {
-                "illuminate/support": "6.0.*"
+                "illuminate/support": "^6.0"
             },
             "type": "library",
             "extra": {
@@ -1199,7 +1199,7 @@
                 }
             ],
             "description": "MEDUSA Core public assets (images, css and js)",
-            "time": "2019-09-30T16:47:41+00:00"
+            "time": "2019-10-02T01:29:07+00:00"
         },
         {
             "name": "medusaapp/registration",
@@ -1207,10 +1207,10 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Registration.git",
-                "reference": "240fe93ccb69369496e5b2434ede6edf34faaf50"
+                "reference": "de6cc5f20a7ad46bb701011126b70018e95e18f0"
             },
             "require": {
-                "illuminate/auth": "6.0.*"
+                "illuminate/auth": "^6.0"
             },
             "type": "library",
             "autoload": {
@@ -1228,7 +1228,7 @@
                 }
             ],
             "description": "Registration traits for MEDUSA Core Simple Personality Package",
-            "time": "2019-09-30T16:48:13+00:00"
+            "time": "2019-10-02T01:27:22+00:00"
         },
         {
             "name": "medusaapp/views",
@@ -1236,10 +1236,10 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Views.git",
-                "reference": "83acfe98d9e958655683aa60e07dab64440d9db2"
+                "reference": "15a1091633e4a0123491549fdf6f41d896b3e136"
             },
             "require": {
-                "illuminate/support": "6.0.*",
+                "illuminate/support": "^6.0",
                 "laravelcollective/html": "^6.0",
                 "php": ">=7.1.0",
                 "spatie/laravel-cookie-consent": "2.9.*"
@@ -1266,7 +1266,7 @@
                     "email": "david.l.weiner30030@gmail.com"
                 }
             ],
-            "time": "2019-09-30T16:48:39+00:00"
+            "time": "2019-10-02T01:27:51+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -5000,16 +5000,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "1.9.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "40461a1f680171876c186dfff419b2a4c892995c"
+                "reference": "ca7ab4f49230cb57c62fedddc5245f5496b82065"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/40461a1f680171876c186dfff419b2a4c892995c",
-                "reference": "40461a1f680171876c186dfff419b2a4c892995c",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/ca7ab4f49230cb57c62fedddc5245f5496b82065",
+                "reference": "ca7ab4f49230cb57c62fedddc5245f5496b82065",
                 "shasum": ""
             },
             "require": {
@@ -5067,7 +5067,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2019-09-27T16:49:08+00:00"
+            "time": "2019-10-01T17:44:44+00:00"
         },
         {
             "name": "facade/ignition-contracts",
