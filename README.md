@@ -5,13 +5,22 @@
 - Clone the repo
 
 ```
-git clone git@github.com:MedusaApp/Core.git
+$ git clone git@github.com:MedusaApp/Core.git
 ```
 
 - Install dependencies
 
 ```
-composer install
+$ cd core
+$ composer install
+```
+- Copy `.env.example` to `.env`
+```
+$ cp .env.example .env
+```
+- Generate application key
+```
+$ php artisan key:generate
 ```
 
 - Publish assets
