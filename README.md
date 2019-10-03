@@ -47,4 +47,9 @@ mysqladmin create <database name>
 php artisan migrate
 ```
 
+- Run the database seeder to setup the roles
+```
+php artisan db:seed --class=BouncerSeeder
+```
+
 - Configure webserver to point to the installation
