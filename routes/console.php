@@ -21,4 +21,6 @@ Artisan::command('inspire', function () {
 Artisan::command('make:admin {email : The email address of the user}', function ($email) {
    $user = User::whereEmail($email)->firstOrFail();
    $user->assign('admin');
+   $user->assign('member');
+   $this->info($user->first_name . ' ' . $user->last_name . ' has been made an admininstrator.');
 })->describe('Make the user with the specified email address an admin');

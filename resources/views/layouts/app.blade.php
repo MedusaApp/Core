@@ -31,6 +31,10 @@
     <div id="app">
         @include('personality::layouts.app')
     </div>
+
+    <footer class="text-sm-center">
+        MEDUSA Core is copyright &copy; 2019 @if(date('Y') > 2019)- {{ date('Y') }} @endif The Royal Manticoran Navy: The Official Honor Harrington Fan Association and is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3</a>
+    </footer>
 @yield('footer')
 </body>
 </html>

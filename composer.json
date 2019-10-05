@@ -6,7 +6,7 @@
         "framework",
         "laravel"
     ],
-    "license": "GNU LGPL v3",
+    "license": "GPL-3.0-or-later",
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
