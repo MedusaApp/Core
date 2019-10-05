@@ -13,7 +13,7 @@ class LoginTest extends DuskTestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testLogin()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('http://127.0.0.1:8000/login')
