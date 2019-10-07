@@ -26,7 +26,7 @@ $ php artisan key:generate
 - Publish assets
 
 ```
-php artisan vendor:publish --tag=core.lang --tag=core.public
+php artisan vendor:publish --tag=core.lang --tag=core.public --tag=core.database
 ```
 
 - Update `.env`
@@ -46,7 +46,10 @@ mysqladmin create <database name>
 ```
 php artisan migrate
 ```
-
+- Regenerate the autoload file
+```
+composer dump
+```
 - Run the database seeder to setup the roles
 ```
 php artisan db:seed --class=BouncerSeeder

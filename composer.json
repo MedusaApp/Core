@@ -14,8 +14,7 @@
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "medusaapp/personality": "dev-master",
-        "pragmarx/countries-laravel": "^0.6.2",
-        "silber/bouncer": "v1.0.0-rc.6"
+        "pragmarx/countries-laravel": "^0.6.2"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
@@ -89,6 +88,18 @@
         {
             "type": "git",
             "url": "git@github.com:MedusaApp/Public.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:MedusaApp/User.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:MedusaApp/Routes.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:MedusaApp/RequireActive.git"
         }
     ]
 }

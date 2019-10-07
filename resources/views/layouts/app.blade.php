@@ -12,20 +12,20 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- Additional Javascript files to include -->
-    @includeIf('personality::js')
+    @stack('scripts')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Additional fonts to include -->
-    @includeIf('personality::fonts')
+    @stack('fonts')
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Additional styles to include -->
-    @includeIf('personality::css')
+    @stack('css')
 
-    @yield('head')
+    @stack('head')
 </head>
 <body>
     <div id="app">
@@ -35,6 +35,6 @@
     <footer class="text-sm-center">
         MEDUSA Core is copyright &copy; 2019 @if(date('Y') > 2019)- {{ date('Y') }} @endif The Royal Manticoran Navy: The Official Honor Harrington Fan Association and is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3</a>
     </footer>
-@yield('footer')
+@stack('footer')
 </body>
 </html>

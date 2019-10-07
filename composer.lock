@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "06eeccf5f74aded7d0f9dc3d26c43464",
+    "content-hash": "0d778ae48fcaaa945a1af0ba3e823638",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -1143,29 +1143,19 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Personality.git",
-                "reference": "c7fb85ef30fbcef550ee63436ce22facb5e911a8"
+                "reference": "f97be8622fb3c85b280402a8707a7443a251bc7d"
             },
             "require": {
                 "medusaapp/auth": "dev-master",
                 "medusaapp/database": "dev-master",
                 "medusaapp/public": "dev-master",
                 "medusaapp/registration": "dev-master",
+                "medusaapp/requireactive": "dev-master",
+                "medusaapp/routes": "dev-master",
+                "medusaapp/user": "dev-master",
                 "medusaapp/views": "dev-master"
             },
             "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "PersonalityCore\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Personality\\Http\\": "src/Http",
-                    "PersonalityCore\\": "src"
-                }
-            },
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -1176,7 +1166,7 @@
                 }
             ],
             "description": "Basic personality module for MEDUSA Core",
-            "time": "2019-10-05T05:24:26+00:00"
+            "time": "2019-10-07T03:29:27+00:00"
         },
         {
             "name": "medusaapp/public",
@@ -1220,7 +1210,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Registration.git",
-                "reference": "23feb6d9d009f0e547763a7d45e29cb636a091c8"
+                "reference": "a8eff1fd74d660feb971e6b9f074545c009b4bf9"
             },
             "require": {
                 "illuminate/auth": "^6.0"
@@ -1241,7 +1231,112 @@
                 }
             ],
             "description": "Registration traits for MEDUSA Core Simple Personality Package",
-            "time": "2019-10-05T02:55:19+00:00"
+            "time": "2019-10-07T02:51:24+00:00"
+        },
+        {
+            "name": "medusaapp/requireactive",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/RequireActive.git",
+                "reference": "d6464f162734434bf7135810180e959a9a17a973"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PersonalityRequire\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Personality\\Http\\": "src/Http",
+                    "PersonalityRequire\\": "src"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "David Weiner",
+                    "email": "david.l.weiner30030@gmail.com"
+                }
+            ],
+            "description": "Optional MEDUSA Core package to require the users membership status to be active to log in",
+            "time": "2019-10-07T04:32:01+00:00"
+        },
+        {
+            "name": "medusaapp/routes",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/Routes.git",
+                "reference": "6630b600f84308d0310822f3bc3802baf0994047"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PersonalityRoutes\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PersonalityRoutes\\": "src"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "David Weiner",
+                    "email": "david.l.weiner30030@gmail.com"
+                }
+            ],
+            "description": "MEDUSA Core Basic Personality Package routes",
+            "time": "2019-10-07T03:25:28+00:00"
+        },
+        {
+            "name": "medusaapp/user",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/User.git",
+                "reference": "647a9fd15502d8c2717763ad65a35b84056d996e"
+            },
+            "require": {
+                "medusaapp/auth": "dev-master",
+                "silber/bouncer": "v1.0.0-rc.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PersonalityUser\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Personality\\Models\\": "src/Models",
+                    "PersonalityUser\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "David Weiner",
+                    "email": "david.l.weiner30030@gmail.com"
+                }
+            ],
+            "description": "MEDUSA Core Simple Personality User Model",
+            "time": "2019-10-07T02:43:14+00:00"
         },
         {
             "name": "medusaapp/views",
@@ -1249,7 +1344,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Views.git",
-                "reference": "8daa34e0ffd303a3eafe4dd9998fb08dcb7ce3fd"
+                "reference": "dbea50491906242578acea98d21c908f4e6917dd"
             },
             "require": {
                 "illuminate/support": "^6.0",
@@ -1279,7 +1374,7 @@
                     "email": "david.l.weiner30030@gmail.com"
                 }
             ],
-            "time": "2019-10-05T05:26:18+00:00"
+            "time": "2019-10-07T04:33:27+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1364,16 +1459,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.25.0",
+            "version": "2.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "b70da677101cca7b584c7489770d2677c2733593"
+                "reference": "d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/b70da677101cca7b584c7489770d2677c2733593",
-                "reference": "b70da677101cca7b584c7489770d2677c2733593",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1",
+                "reference": "d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1",
                 "shasum": ""
             },
             "require": {
@@ -1427,7 +1522,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-09-30T16:22:22+00:00"
+            "time": "2019-10-05T15:52:23+00:00"
         },
         {
             "name": "nette/caching",
