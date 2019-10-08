@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "06eeccf5f74aded7d0f9dc3d26c43464",
+    "content-hash": "0d778ae48fcaaa945a1af0ba3e823638",
     "packages": [
         {
             "name": "colinodell/json5",
@@ -1085,7 +1085,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Auth.git",
-                "reference": "4ca075534ad4caf87cec91bc33391cc92f363909"
+                "reference": "e5ca42690ab4be059d41006e26b396f2ed112349"
             },
             "require": {
                 "illuminate/auth": "^6.0"
@@ -1097,7 +1097,7 @@
                 }
             },
             "license": [
-                "GNU LGPL V3"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -1106,7 +1106,7 @@
                 }
             ],
             "description": "MEDUSA Core User model",
-            "time": "2019-10-02T01:28:36+00:00"
+            "time": "2019-10-05T02:45:30+00:00"
         },
         {
             "name": "medusaapp/database",
@@ -1114,7 +1114,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Database.git",
-                "reference": "7f517df5cedc76abdac945b90df7fff50bb52ad4"
+                "reference": "ec40d4db67996008a39a302782e83706a6111689"
             },
             "require": {
                 "illuminate/database": "^6.0"
@@ -1126,7 +1126,7 @@
                 }
             },
             "license": [
-                "GNU LGPL V3"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -1135,7 +1135,7 @@
                 }
             ],
             "description": "MEDUSA Core Database model",
-            "time": "2019-10-02T01:28:13+00:00"
+            "time": "2019-10-05T02:46:03+00:00"
         },
         {
             "name": "medusaapp/personality",
@@ -1143,18 +1143,21 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Personality.git",
-                "reference": "f767737297862ce7d97082de95bf7aa79ccb2ffd"
+                "reference": "f97be8622fb3c85b280402a8707a7443a251bc7d"
             },
             "require": {
                 "medusaapp/auth": "dev-master",
                 "medusaapp/database": "dev-master",
                 "medusaapp/public": "dev-master",
                 "medusaapp/registration": "dev-master",
+                "medusaapp/requireactive": "dev-master",
+                "medusaapp/routes": "dev-master",
+                "medusaapp/user": "dev-master",
                 "medusaapp/views": "dev-master"
             },
             "type": "library",
             "license": [
-                "GNU LGPL v3"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -1163,7 +1166,7 @@
                 }
             ],
             "description": "Basic personality module for MEDUSA Core",
-            "time": "2019-09-30T16:50:04+00:00"
+            "time": "2019-10-07T03:29:27+00:00"
         },
         {
             "name": "medusaapp/public",
@@ -1171,7 +1174,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Public.git",
-                "reference": "9a94e1d17499d6f297a6300d06c7156b562276df"
+                "reference": "64b9553ee335e8203ba4069c7d0ec6256d43bbca"
             },
             "require": {
                 "illuminate/support": "^6.0"
@@ -1190,7 +1193,7 @@
                 }
             },
             "license": [
-                "GNU GPL v3"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -1199,7 +1202,7 @@
                 }
             ],
             "description": "MEDUSA Core public assets (images, css and js)",
-            "time": "2019-10-02T01:29:07+00:00"
+            "time": "2019-10-05T05:25:23+00:00"
         },
         {
             "name": "medusaapp/registration",
@@ -1207,7 +1210,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Registration.git",
-                "reference": "de6cc5f20a7ad46bb701011126b70018e95e18f0"
+                "reference": "a8eff1fd74d660feb971e6b9f074545c009b4bf9"
             },
             "require": {
                 "illuminate/auth": "^6.0"
@@ -1219,7 +1222,7 @@
                 }
             },
             "license": [
-                "GNU LGPL v3"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -1228,7 +1231,112 @@
                 }
             ],
             "description": "Registration traits for MEDUSA Core Simple Personality Package",
-            "time": "2019-10-02T01:27:22+00:00"
+            "time": "2019-10-07T02:51:24+00:00"
+        },
+        {
+            "name": "medusaapp/requireactive",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/RequireActive.git",
+                "reference": "d6464f162734434bf7135810180e959a9a17a973"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PersonalityRequire\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Personality\\Http\\": "src/Http",
+                    "PersonalityRequire\\": "src"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "David Weiner",
+                    "email": "david.l.weiner30030@gmail.com"
+                }
+            ],
+            "description": "Optional MEDUSA Core package to require the users membership status to be active to log in",
+            "time": "2019-10-07T04:32:01+00:00"
+        },
+        {
+            "name": "medusaapp/routes",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/Routes.git",
+                "reference": "6630b600f84308d0310822f3bc3802baf0994047"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PersonalityRoutes\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PersonalityRoutes\\": "src"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "David Weiner",
+                    "email": "david.l.weiner30030@gmail.com"
+                }
+            ],
+            "description": "MEDUSA Core Basic Personality Package routes",
+            "time": "2019-10-07T03:25:28+00:00"
+        },
+        {
+            "name": "medusaapp/user",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:MedusaApp/User.git",
+                "reference": "647a9fd15502d8c2717763ad65a35b84056d996e"
+            },
+            "require": {
+                "medusaapp/auth": "dev-master",
+                "silber/bouncer": "v1.0.0-rc.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PersonalityUser\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Personality\\Models\\": "src/Models",
+                    "PersonalityUser\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "David Weiner",
+                    "email": "david.l.weiner30030@gmail.com"
+                }
+            ],
+            "description": "MEDUSA Core Simple Personality User Model",
+            "time": "2019-10-07T02:43:14+00:00"
         },
         {
             "name": "medusaapp/views",
@@ -1236,7 +1344,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:MedusaApp/Views.git",
-                "reference": "15a1091633e4a0123491549fdf6f41d896b3e136"
+                "reference": "dbea50491906242578acea98d21c908f4e6917dd"
             },
             "require": {
                 "illuminate/support": "^6.0",
@@ -1258,7 +1366,7 @@
                 }
             },
             "license": [
-                "GNU LGPL v3"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -1266,7 +1374,7 @@
                     "email": "david.l.weiner30030@gmail.com"
                 }
             ],
-            "time": "2019-10-02T01:27:51+00:00"
+            "time": "2019-10-07T04:33:27+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1351,16 +1459,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.24.0",
+            "version": "2.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "934459c5ac0658bc765ad1e53512c7c77adcac29"
+                "reference": "d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/934459c5ac0658bc765ad1e53512c7c77adcac29",
-                "reference": "934459c5ac0658bc765ad1e53512c7c77adcac29",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1",
+                "reference": "d59c6cea9c4a3547bb6c0dfec451319abdaa4fb1",
                 "shasum": ""
             },
             "require": {
@@ -1407,14 +1515,14 @@
                     "homepage": "http://github.com/kylekatarnls"
                 }
             ],
-            "description": "A API extension for DateTime that supports 281 different languages.",
+            "description": "An API extension for DateTime that supports 281 different languages.",
             "homepage": "http://carbon.nesbot.com",
             "keywords": [
                 "date",
                 "datetime",
                 "time"
             ],
-            "time": "2019-08-31T16:37:55+00:00"
+            "time": "2019-10-05T15:52:23+00:00"
         },
         {
             "name": "nette/caching",
@@ -5000,16 +5108,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "1.9.1",
+            "version": "1.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "ca7ab4f49230cb57c62fedddc5245f5496b82065"
+                "reference": "9b312a29fb6c781d5e2f4e41fb42ce3fde63a237"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/ca7ab4f49230cb57c62fedddc5245f5496b82065",
-                "reference": "ca7ab4f49230cb57c62fedddc5245f5496b82065",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/9b312a29fb6c781d5e2f4e41fb42ce3fde63a237",
+                "reference": "9b312a29fb6c781d5e2f4e41fb42ce3fde63a237",
                 "shasum": ""
             },
             "require": {
@@ -5067,7 +5175,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2019-10-01T17:44:44+00:00"
+            "time": "2019-10-04T09:34:40+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -5951,22 +6059,22 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.8.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76"
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/f6811d96d97bdf400077a0cc100ae56aa32b9203",
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.3|^7.0",
-                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0",
+                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0|^5.0",
                 "sebastian/comparator": "^1.1|^2.0|^3.0",
                 "sebastian/recursion-context": "^1.0|^2.0|^3.0"
             },
@@ -6010,7 +6118,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2019-06-13T12:50:23+00:00"
+            "time": "2019-10-03T11:07:50+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -6266,16 +6374,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.3.5",
+            "version": "8.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "302faed7059fde575cf3403a78c730c5e3a62750"
+                "reference": "57e5e77b62086033528ee1f4063ae03035f57894"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/302faed7059fde575cf3403a78c730c5e3a62750",
-                "reference": "302faed7059fde575cf3403a78c730c5e3a62750",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/57e5e77b62086033528ee1f4063ae03035f57894",
+                "reference": "57e5e77b62086033528ee1f4063ae03035f57894",
                 "shasum": ""
             },
             "require": {
@@ -6319,7 +6427,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "8.3-dev"
+                    "dev-master": "8.4-dev"
                 }
             },
             "autoload": {
@@ -6345,7 +6453,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-09-14T09:12:03+00:00"
+            "time": "2019-10-04T03:12:25+00:00"
         },
         {
             "name": "scrivo/highlight.php",
