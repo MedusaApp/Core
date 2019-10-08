@@ -16,8 +16,8 @@ class LoginTest extends DuskTestCase
     public function testLogin()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('http://127.0.0.1:8000/login')
-                    ->assertSee('MEDUSA');
+            $browser->visit('http://127.0.0.1:8000/login');
+            $browser->assertSee('MEDUSA');
             
             $browser->assertSee('This site uses cookies to personalize content, to provide social media features and to analyze traffic.');
             $browser->press('OK');
