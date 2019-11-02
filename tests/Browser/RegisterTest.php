@@ -62,21 +62,30 @@ class RegisterTest extends DuskTestCase
             $browser->type('address_1', '1313 Mockingbird Lane');
             $browser->type('address_2', 'Under the Stairs');
 
-            $browser->click('input[id=country-selectized]');
-            $browser->click('div[data-value="USA"]');
-            
-            $browser->click('input[id=state_province]'); // breaks here. 
-            // Unable to locate element: {"method":"css selector","selector":"body input[id=state_province]"}
-            $browser->click('div[data-value="California"]');
-            
             $browser->type('city', 'Mockingbird Heights');
             $browser->type('postal_code', '94013');
             
             $browser->type('telephone', '415-330-1313');
             $browser->type('dob', 'October 31, 1947');
             $browser->type('email', 'HermanMunster@AOL.com');
+            
+            // works: 
+            // <input id="password" type="password" class="show-hide form-control " name="password" required="" autocomplete="new-password" tabindex="14">
             $browser->type('password', 'Lily13Eddie');
+            
+            // works:
+            $browser->click('input[id=country-selectized]');
+            // <div class="option" data-selectable="" data-value="USA"><span class="flag-icon flag-icon-usa"></span> United States</div>
+            $browser->click('div[data-value="USA"]');
+            
+            // doesn't work:
+            // <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required="" autocomplete="new-password" tabindex="15">
             $browser->type('password-confirm', 'Lily13Eddie');
+            
+            // doesn't work:
+            $browser->click('input[id=state_province-selectized]'); 
+            // <div class="option" data-selectable="" data-value="California">California</div>
+            $browser->click('div[data-value="California"]');
             
             $browser->press('Register');
            
