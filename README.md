@@ -28,7 +28,9 @@ Depending on how PHP was built or the package that you used, some, if not most o
 ## Suggested nginx configuration
 ```
 server {
+   # Change the port number as needed.  Most common alternate ports are 8000 or 8080
    listen 80;
+   
    server_name example.com;
    root /path/to/public;
 
@@ -75,7 +77,7 @@ $ git clone https://github.com/MedusaApp/Core.git
 
 ```
 $ cd core
-$ composer install
+$ composer install --no-dev
 ```
 - Copy `.env.example` to `.env`
 ```
@@ -86,12 +88,6 @@ $ cp .env.example .env
 $ php artisan key:generate
 ```
 
-- Publish assets
-
-```
-php artisan vendor:publish --tag=core.lang --tag=core.public --tag=core.database
-```
-
 - Update `.env`
   - Configure Database conection
   - Add `REG_TITLE` option and set
@@ -99,6 +95,17 @@ php artisan vendor:publish --tag=core.lang --tag=core.public --tag=core.database
   - Change `MAIL_DRIVER` to `mailgun`
   - Add `MAILGUN_DOMAIN` and `MAILGUN_SECRET`.  Get values from Dave
   
+- If you are setting up a development environment, install the dev dependencies
+```
+$ composer install
+```
+
+- Publish assets
+
+```
+php artisan vendor:publish --tag=core.lang --tag=core.public --tag=core.database
+```
+
 - Create database
 
 ```
