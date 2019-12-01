@@ -30,7 +30,7 @@ abstract class DuskTestCase extends BaseTestCase
     protected function driver()
     {
         $options = (new ChromeOptions);
-        $options->addArguments(['--disable-gpu','--headless','--window-size=1920,1080',]);
+        //$options->addArguments(['--disable-gpu','--headless','--window-size=1920,1080',]);
 
         return RemoteWebDriver::create(
             'http://localhost:9515', DesiredCapabilities::chrome()->setCapability(
@@ -38,4 +38,5 @@ abstract class DuskTestCase extends BaseTestCase
             )
         );
     }
+
 }
