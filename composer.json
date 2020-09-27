@@ -1,31 +1,29 @@
 {
     "name": "medusaapp/core",
     "type": "project",
-    "description": "MEDUSA Core Application",
+    "description": "MEDUSA Core API",
     "keywords": [
         "framework",
         "laravel"
     ],
     "license": "GPL-3.0-or-later",
     "require": {
-        "php": "^7.2",
-        "fideloper/proxy": "^4.0",
-        "freshbitsweb/laratables": "^2.1",
-        "guzzlehttp/guzzle": "^6.3",
-        "laravel/framework": "^6.0",
-        "laravel/tinker": "^1.0",
-        "medusaapp/personality": "dev-master",
-        "pragmarx/countries-laravel": "^0.6.2"
+        "php": "^7.4",
+        "darkaonline/l5-swagger": "^8.0",
+        "fideloper/proxy": "^4.2",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "laravel/framework": "^8.0",
+        "laravel/sanctum": "^2.6",
+        "laravel/tinker": "^2.0",
+        "pragmarx/countries-laravel": "^0.7.0"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.6",
-        "facade/ignition": "^1.4",
-        "fzaninotto/faker": "^1.4",
-        "laravel/dusk": "^5.5",
-        "laravel/ui": "^1.0",
+        "facade/ignition": "^2.3.6",
+        "fzaninotto/faker": "^1.9.1",
+        "laravel/dusk": "^6.6",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^8.0"
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^9.0"
     },
     "config": {
         "optimize-autoloader": true,
@@ -39,12 +37,10 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
-        },
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ]
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
@@ -64,43 +60,5 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
-    },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:MedusaApp/Personality.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:MedusaApp/Registration.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:MedusaApp/Views.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:MedusaApp/Auth.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:MedusaApp/Database.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:MedusaApp/Public.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:MedusaApp/User.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:MedusaApp/Routes.git"
-        },
-        {
-            "type": "git",
-            "url": "git@github.com:MedusaApp/RequireActive.git"
-        }
-    ]
+    }
 }

@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CountryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +15,25 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 /*
   Public API Routes
 */
-Route::group(['prefix' => 'v1'], function(){
-    Route::get('states/{cca3}')->uses('ApiController@getStates');
+Route::group(['prefix' => 'v1'], function () {
+    Route::get('countries')->uses([CountryController::class, 'index']);
+    Route::get('countries/{cca3}')->uses([CountryController::class, 'show']);
+    Route::get('countries/{cca3}/states')->uses([CountryController::class, 'getStates']);
+    Route::post('login')->uses([LoginController::class, 'authenticate']);
+
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::get('users')->uses([UserController::class, 'index']);
+        Route::get('users/{user}')->uses([UserController::class, 'show']);
+        Route::put('users/{user}')->uses([UserController::class, 'update']);
+        Route::post('users')->uses([UserController::class, 'store']);
+        Route::delete('users')->uses([UserController::class, 'destroy']);
+        Route::post('logout')->uses([LoginController::class, 'logout'])->name('logout');
+        Route::get('/email/verify/{id}/{hash}', function (\Illuminate\Foundation\Auth\EmailVerificationRequest $request) {
+            $request->fulfill();
+            return response()->json(['message' => 'verification succeeded']);
+        });
+    });
 });
