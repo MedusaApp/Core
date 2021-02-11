@@ -32,6 +32,10 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        //
+        $this->renderable(function (ModelNotFoundException $e, $request) {
+            return response()->json([
+                'error' => 'Resource not found'
+            ], 404);
+        });
     }
 }

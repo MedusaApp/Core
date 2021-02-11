@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\RootController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,3 +13,4 @@
 |
 */
 
+Route::get('/', [RootController::class, 'index']);
