@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Medusa Core API",
-        "description": "This is the Medusa Core API. Most routes are protected with [Laravel Sanctum's stateful authentication](https://laravel.com/docs/8.x/sanctum#spa-authentication).",
+        "description": "This is the Medusa Core API. Most routes are protected with JWT authentication.",
         "contact": {
             "email": "mdoc@trmn.org"
         },
@@ -13,6 +13,209 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/v1/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login",
+                "description": "Attempts to login",
+                "operationId": "login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "The email for login",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful login"
+                    },
+                    "401": {
+                        "description": "failed to login"
+                    }
+                }
+            }
+        },
+        "/api/v1/branches": {
+            "get": {
+                "tags": [
+                    "Branches"
+                ],
+                "summary": "Get list of branches",
+                "description": "Returns a list of branches ordered by abbreviation.",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Branches"
+                ],
+                "summary": "Create a new branch",
+                "description": "Creates a new branch",
+                "operationId": "store",
+                "requestBody": {
+                    "request": "Branch",
+                    "description": "Branch object to be added",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Branch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "branch successfully created"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/branches/{id}": {
+            "get": {
+                "tags": [
+                    "Branches"
+                ],
+                "summary": "Retrieve the given branch",
+                "description": "Retrieves the given branch",
+                "operationId": "show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the branch to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "branch retrieved"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Branches"
+                ],
+                "summary": "Update the given branch",
+                "description": "Updates the given branch",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the branch to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Branch",
+                    "description": "Branch object to be modified",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Branch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "branch successfully modified"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Branches"
+                ],
+                "summary": "Delete the given branch",
+                "description": "Deletes the given branch. Note: this is a hard delete.",
+                "operationId": "destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the branch to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "branch successfully deleted"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
         "/api/v1/countries": {
             "get": {
                 "tags": [
@@ -95,7 +298,12 @@
                     "400": {
                         "description": "bad request"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -123,7 +331,12 @@
                     "403": {
                         "description": "permission denied"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/v1/users/{id}": {
@@ -152,7 +365,12 @@
                     "403": {
                         "description": "permission denied"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -191,7 +409,12 @@
                     "403": {
                         "description": "permission denied"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -218,12 +441,34 @@
                     "403": {
                         "description": "permission denied"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         }
     },
     "components": {
         "schemas": {
+            "Branch": {
+                "properties": {
+                    "abbreviation": {
+                        "description": "The abbreviated version of the branch's name",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The full name of the branch",
+                        "type": "string"
+                    },
+                    "is_civilian": {
+                        "description": "Is this branch a civilian branch?",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            },
             "User": {
                 "properties": {
                     "first_name": {
@@ -281,20 +526,40 @@
                     "password": {
                         "description": "Password",
                         "type": "string"
+                    },
+                    "branch_id": {
+                        "description": "ID of the branch the user belongs to",
+                        "type": "integer"
                     }
                 },
                 "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearer_token": {
+                "type": "apiKey",
+                "description": "Enter token in format (bearer $bearertoken$)",
+                "name": "Authorization",
+                "in": "header"
             }
         }
     },
     "tags": [
         {
+            "name": "Auth",
+            "description": "Authentication routes."
+        },
+        {
+            "name": "Branches",
+            "description": "Branch control routes."
+        },
+        {
             "name": "Countries",
-            "description": "Routes for standardizing country data. These are not protected by Sanctum."
+            "description": "Routes for standardizing country data. These are not protected by authorization."
         },
         {
             "name": "Users",
-            "description": "User control routes. These are protected by Sanctum."
+            "description": "User control routes."
         }
     ],
     "security": [

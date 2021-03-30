@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BranchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CountryController;
@@ -27,6 +28,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('login')->uses([AuthController::class, 'login']);
 
     Route::middleware('auth:api')->group(function () {
+        Route::apiResource('branches', BranchController::class);
         Route::apiResource('users', UserController::class);
         Route::post('logout')->uses([LoginController::class, 'logout'])->name('logout');
         Route::get('/email/verify/{id}/{hash}', function (\Illuminate\Foundation\Auth\EmailVerificationRequest $request) {

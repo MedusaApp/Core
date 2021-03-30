@@ -8,15 +8,55 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    /**
+     * @OA\Tag(
+     *     name="Auth",
+     *     description="Authentication routes."
+     * )
+     */
+
     public function __construct()
     {
         return auth()->shouldUse('api');
     }
 
     /**
-     * Attempt to authenticate with the given credentials.
+     * Authenticate with the given credentials
      *
-     * @param Request $request
+     * @OA\Post(
+     *     path="/api/v1/login",
+     *     operationId="login",
+     *     tags={"Auth"},
+     *     summary="Login",
+     *     description="Attempts to login",
+     *     @OA\Parameter(
+      *         name="email",
+      *         in="query",
+      *         description="The email for login",
+      *         required=true,
+      *         @OA\Schema(
+      *             type="string"
+      *         )
+      *     ),
+      *     @OA\Parameter(
+      *         name="password",
+      *         in="query",
+      *         required=true,
+      *         @OA\Schema(
+      *             type="string",
+      *         )
+      *     ),
+     *     @OA\Response(
+     *       response=200,
+     *       description="Successful login"
+     *     ),
+     *     @OA\Response(
+     *       response=401,
+     *       description="failed to login"
+     *     )
+     * )
+     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function login(Request $request)

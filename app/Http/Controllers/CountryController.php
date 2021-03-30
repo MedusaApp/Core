@@ -11,7 +11,7 @@ class CountryController extends Controller
     /**
      * @OA\Tag(
      *     name="Countries",
-     *     description="Routes for standardizing country data. These are not protected by Sanctum."
+     *     description="Routes for standardizing country data. These are not protected by authorization."
      * )
      */
 

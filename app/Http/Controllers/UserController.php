@@ -12,7 +12,7 @@ class UserController extends Controller
     /**
      * @OA\Tag(
      *     name="Users",
-     *     description="User control routes. These are protected by Sanctum."
+     *     description="User control routes."
      * )
      */
 
@@ -25,6 +25,7 @@ class UserController extends Controller
      *     tags={"Users"},
      *     summary="Get list of users",
      *     description="Returns a list of users ordered by last name and first name",
+     *     security={{"bearer_token":{}}},
      *     @OA\Response(
      *      response=200,
      *      description="successful operation"
@@ -52,6 +53,7 @@ class UserController extends Controller
      *     tags={"Users"},
      *     summary="Create a new user",
      *     description="Creates a new user",
+     *     security={{"bearer_token":{}}},
      *     @OA\RequestBody(
      *       request="User",
      *       description="User object to be added",
@@ -126,6 +128,7 @@ class UserController extends Controller
      *     tags={"Users"},
      *     summary="Retrieve the given user",
      *     description="Retrieves the given user, without hidden fields like password",
+     *     security={{"bearer_token":{}}},
      *     @OA\Parameter(
      *       name="id",
      *       description="The ID of the user to retrieve",
@@ -163,6 +166,7 @@ class UserController extends Controller
      *     tags={"Users"},
      *     summary="Update the given user",
      *     description="Updates the given user",
+     *     security={{"bearer_token":{}}},
      *     @OA\Parameter(
      *       name="id",
      *       description="The ID of the user to update",
@@ -211,6 +215,7 @@ class UserController extends Controller
      *     tags={"Users"},
      *     summary="Delete the given user",
      *     description="Deletes the given user. Note: this is a hard delete.",
+     *     security={{"bearer_token":{}}},
      *     @OA\Parameter(
      *       name="id",
      *       description="The ID of the user to delete",

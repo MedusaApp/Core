@@ -16,12 +16,14 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
+    use HasFactory;
 
     protected $guarded = ['password'];
     protected $hidden = ['password', 'remember_token'];
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    protected $with = ['branch'];
 
     /**
      * First name
@@ -135,7 +137,7 @@ class User extends Authenticatable implements JWTSubject
 
     /**
      * Is active?
-     * @var string
+     * @var boolean
      * @OA\Property(
      *     property="is_active",
      *     type="boolean",
@@ -181,5 +183,19 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    /**
+     * Branch ID
+     * @var integer
+     * @OA\Property(
+     *     property="branch_id",
+     *     type="integer",
+     *     description="ID of the branch the user belongs to"
+     * )
+     */
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
     }
 }

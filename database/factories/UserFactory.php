@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Branch;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -12,6 +13,10 @@ class UserFactory extends Factory
 
     public function definition()
     {
+        $branches = Branch::all();
+
+        $branch = $branches[mt_rand(0, sizeof($branches) - 1)];
+
         return [
             'first_name' => $this->faker->firstName,
             'middle_name' => $this->faker->firstName,
@@ -29,8 +34,8 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'branch_id' => $branch->id,
         ];
     }
 }
 
-;

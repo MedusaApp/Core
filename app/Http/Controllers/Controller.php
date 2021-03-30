@@ -13,7 +13,7 @@ class Controller extends BaseController
      * @OA\Info(
      *     version="1.0.0",
      *     title="Medusa Core API",
-     *     description="This is the Medusa Core API. Most routes are protected with [Laravel Sanctum's stateful authentication](https://laravel.com/docs/8.x/sanctum#spa-authentication).",
+     *     description="This is the Medusa Core API. Most routes are protected with JWT authentication.",
      *     @OA\Contact(
      *       email="mdoc@trmn.org"
      *     ),
