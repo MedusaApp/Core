@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Permissions\HasPermissionsTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,6 +18,7 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
     use HasFactory;
+    use HasPermissionsTrait;
 
     protected $guarded = ['password'];
     protected $hidden = ['password', 'remember_token'];

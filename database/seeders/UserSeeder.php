@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -17,5 +18,13 @@ class UserSeeder extends Seeder
         User::factory()
             ->times(50)
             ->create();
+
+        $adminRole = Role::where('slug', 'admin')->first();
+
+        $adminUser = User::find(1);
+        $adminUser->email = 'test@example.net';
+        $adminUser->save();
+
+        $adminUser->roles()->attach($adminRole);
     }
 }
