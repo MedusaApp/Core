@@ -20,7 +20,7 @@ class User extends Authenticatable implements JWTSubject
     use HasFactory;
     use HasPermissionsTrait;
 
-    protected $guarded = ['password'];
+    protected $guarded = [];
     protected $hidden = ['password', 'remember_token'];
     protected $casts = [
         'email_verified_at' => 'datetime',

@@ -17,12 +17,12 @@ class RoleTableSeeder extends Seeder
     {
         $createUsers = Permission::where('slug', 'create-users')->first();
         $deleteUsers = Permission::where('slug', 'delete-users')->first();
-        $editUsers = Permission::where('slug', 'edit-users')->first();
+        $editUsers = Permission::where('slug', 'update-users')->first();
         $viewUsers = Permission::where('slug', 'view-users')->first();
 
         $createBranches = Permission::where('slug', 'create-branches')->first();
         $deleteBranches = Permission::where('slug', 'delete-branches')->first();
-        $editBranches = Permission::where('slug', 'edit-branches')->first();
+        $editBranches = Permission::where('slug', 'update-branches')->first();
         $viewBranches = Permission::where('slug', 'view-branches')->first();
 
         $admin = new Role();

@@ -19,10 +19,10 @@ class PermissionTableSeeder extends Seeder
         $viewUsers->name = 'View Users';
         $viewUsers->save();
 
-        $editUsers = new Permission();
-        $editUsers->slug = 'edit-users';
-        $editUsers->name = 'Edit Users';
-        $editUsers->save();
+        $updateUsers = new Permission();
+        $updateUsers->slug = 'update-users';
+        $updateUsers->name = 'Update Users';
+        $updateUsers->save();
 
         $deleteUsers = new Permission();
         $deleteUsers->slug = 'delete-users';
@@ -39,10 +39,10 @@ class PermissionTableSeeder extends Seeder
         $viewBranches->name = 'View Branches';
         $viewBranches->save();
 
-        $editBranches = new Permission();
-        $editBranches->slug = 'edit-branches';
-        $editBranches->name = 'Edit Branches';
-        $editBranches->save();
+        $updateBranches = new Permission();
+        $updateBranches->slug = 'update-branches';
+        $updateBranches->name = 'Update Branches';
+        $updateBranches->save();
 
         $deleteBranches = new Permission();
         $deleteBranches->slug = 'delete-branches';

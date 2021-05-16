@@ -15,6 +15,8 @@ class Branch extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['abbreviation', 'name', 'is_civilian'];
+
     /**
      * Abbreviation
      * @var string

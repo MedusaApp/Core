@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -39,6 +40,8 @@ class UserController extends Controller
      */
     public function index()
     {
+        Gate::authorize('view-users');
+
         $users = User::orderBy('last_name')->orderBy('first_name')->get();
 
         return response()->json($users);
@@ -75,6 +78,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create-users');
+
         $attributes = $request->all();
 
         $validator = Validator::make($request->all(), [
@@ -154,6 +159,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        Gate::authorize('show-user', $user);
+
         return response()->json($user);
     }
 
@@ -198,6 +205,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        Gate::authorize('update-user', $user);
+
         $attributes = $request->all();
 
         $user->update($attributes);
@@ -240,6 +249,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        Gate::authorize('delete-users', $user);
+
         $user->delete();
 
         return response()->json(['message' => 'user successfully deleted'], 200);

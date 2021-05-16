@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\RootController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,7 @@ Route::group(['prefix' => 'v1'], function () {
             $request->fulfill();
             return response()->json(['message' => 'verification succeeded']);
         });
-        Route::group(['middleware' => 'role:admin'], function () {
-            Route::apiResource('branches', BranchController::class);
-            Route::apiResource('users', UserController::class);
-        });
+        Route::apiResource('branches', BranchController::class);
+        Route::apiResource('users', UserController::class);
     });
 });

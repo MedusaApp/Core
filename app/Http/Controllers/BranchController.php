@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Branch;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class BranchController extends Controller
 {
@@ -37,6 +38,8 @@ class BranchController extends Controller
      */
     public function index()
     {
+        Gate::authorize('view-branches');
+
         $branches = Branch::orderBy('abbreviation')->get();
 
         return response()->json($branches);
@@ -73,6 +76,8 @@ class BranchController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create-branches');
+
         $attributes = $request->all();
 
         $branch = Branch::create($attributes);
@@ -115,6 +120,8 @@ class BranchController extends Controller
      */
     public function show(Branch $branch)
     {
+        Gate::authorize('view-branches');
+
         return response()->json($branch);
     }
 
@@ -159,6 +166,8 @@ class BranchController extends Controller
      */
     public function update(Request $request, Branch $branch)
     {
+        Gate::authorize('update-branches');
+
         $attributes = $request->all();
 
         $branch->update($attributes);
@@ -201,6 +210,8 @@ class BranchController extends Controller
      */
     public function destroy(Branch $branch)
     {
+        Gate::authorize('delete-branches');
+
         $branch->delete();
 
         return response()->json(['message' => 'branch successfully deleted'], 200);
