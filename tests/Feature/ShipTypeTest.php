@@ -3,50 +3,50 @@
 namespace Tests\Feature;
 
 use App\Models\Role;
-use App\Models\Branch;
+use App\Models\ShipType;
 use App\Models\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class BranchTest extends TestCase
+class ShipTypeTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_user_login_required_for_branch_create()
+    public function test_user_login_required_for_shiptype_create()
     {
-        $response = $this->post('/api/v1/branches', []);
+        $response = $this->post('/api/v1/shiptypes', []);
 
         $response->assertForbidden();
     }
 
-    public function test_user_login_required_for_branch_details()
+    public function test_user_login_required_for_shiptype_details()
     {
-        $branch = Branch::where('abbreviation', 'RMN')->first();
+        $shiptype = ShipType::where('abbreviation', 'LAC')->first();
 
-        $response = $this->get('/api/v1/branches/' . $branch->id);
+        $response = $this->get('/api/v1/shiptypes/' . $shiptype->id);
 
         $response->assertForbidden();
     }
 
-    public function test_user_login_required_for_branch_delete()
+    public function test_user_login_required_for_shiptype_delete()
     {
-        $branch = Branch::where('abbreviation', 'RMN')->first();
+        $shiptype = ShipType::where('abbreviation', 'LAC')->first();
 
-        $response = $this->delete('/api/v1/branches/' . $branch->id);
+        $response = $this->delete('/api/v1/shiptypes/' . $shiptype->id);
 
         $response->assertForbidden();
     }
 
-    public function test_user_login_required_for_branch_update()
+    public function test_user_login_required_for_shiptype_update()
     {
-        $branch = Branch::where('abbreviation', 'RMN')->first();
+        $shiptype = ShipType::where('abbreviation', 'LAC')->first();
 
-        $response = $this->put('/api/v1/branches/' . $branch->id);
+        $response = $this->put('/api/v1/shiptypes/' . $shiptype->id);
 
         $response->assertForbidden();
     }
 
-    public function test_member_can_see_branches()
+    public function test_member_can_see_shiptypes()
     {
         $user = User::factory()->create();
         $memberRole = Role::where('slug', 'member')->first();
@@ -56,12 +56,12 @@ class BranchTest extends TestCase
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->get('/api/v1/branches');
+        ])->get('/api/v1/shiptypes');
 
         $response->assertOk();
     }
 
-    public function test_member_cannot_create_branches()
+    public function test_member_cannot_create_shiptypes()
     {
         $user = User::factory()->create();
         $memberRole = Role::where('slug', 'member')->first();
@@ -71,46 +71,46 @@ class BranchTest extends TestCase
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->post('/api/v1/branches', []);
+        ])->post('/api/v1/shiptypes', []);
 
         $response->assertForbidden();
     }
 
-    public function test_member_cannot_delete_branches()
+    public function test_member_cannot_delete_shiptypes()
     {
         $user = User::factory()->create();
         $memberRole = Role::where('slug', 'member')->first();
         $user->roles()->attach($memberRole);
 
-        $branch = Branch::where('abbreviation', 'RMN')->first();
+        $shiptype = ShipType::where('abbreviation', 'LAC')->first();
 
         $token = auth()->login($user);
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->delete('/api/v1/branches/' . $branch->id);
+        ])->delete('/api/v1/shiptypes/' . $shiptype->id);
 
         $response->assertForbidden();
     }
 
-    public function test_member_cannot_update_branches()
+    public function test_member_cannot_update_shiptypes()
     {
         $user = User::factory()->create();
         $memberRole = Role::where('slug', 'member')->first();
         $user->roles()->attach($memberRole);
 
-        $branch = Branch::where('abbreviation', 'RMN')->first();
+        $shiptype = ShipType::where('abbreviation', 'LAC')->first();
 
         $token = auth()->login($user);
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->put('/api/v1/branches/' . $branch->id);
+        ])->put('/api/v1/shiptypes/' . $shiptype->id);
 
         $response->assertForbidden();
     }
 
-    public function test_admin_can_see_branches()
+    public function test_admin_can_see_shiptypes()
     {
         $user = User::factory()->create();
         $adminRole = Role::where('slug', 'admin')->first();
@@ -120,12 +120,12 @@ class BranchTest extends TestCase
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->get('/api/v1/branches');
+        ])->get('/api/v1/shiptypes');
 
         $response->assertOk();
     }
 
-    public function test_admin_can_create_branches()
+    public function test_admin_can_create_shiptypes()
     {
         $user = User::factory()->create();
         $adminRole = Role::where('slug', 'admin')->first();
@@ -135,45 +135,44 @@ class BranchTest extends TestCase
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->post('/api/v1/branches', [
+        ])->post('/api/v1/shiptypes', [
             'abbreviation' => 'TST',
-            'name' => 'Test Branch',
-            'is_civilian' => false,
+            'name' => 'Test ShipType',
         ]);
 
         $response->assertOk();
     }
 
-    public function test_admin_can_delete_branches()
+    public function test_admin_can_delete_shiptypes()
     {
         $user = User::factory()->create();
         $adminRole = Role::where('slug', 'admin')->first();
         $user->roles()->attach($adminRole);
 
-        $branch = Branch::factory()->create();
+        $shiptype = ShipType::factory()->create();
 
         $token = auth()->login($user);
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->delete('/api/v1/branches/' . $branch->id);
+        ])->delete('/api/v1/shiptypes/' . $shiptype->id);
 
         $response->assertOk();
     }
 
-    public function test_admin_can_update_branches()
+    public function test_admin_can_update_shiptypes()
     {
         $user = User::factory()->create();
         $adminRole = Role::where('slug', 'admin')->first();
         $user->roles()->attach($adminRole);
 
-        $branch = Branch::factory()->create();
+        $shiptype = ShipType::factory()->create();
 
         $token = auth()->login($user);
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->put('/api/v1/branches/' . $branch->id);
+        ])->put('/api/v1/shiptypes/' . $shiptype->id);
 
         $response->assertOk();
     }

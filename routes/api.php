@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\BranchController;
+use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\ChapterTypeController;
+use App\Http\Controllers\ShipClassController;
+use App\Http\Controllers\ShipTypeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CountryController;
@@ -36,6 +40,11 @@ Route::group(['prefix' => 'v1'], function () {
             return response()->json(['message' => 'verification succeeded']);
         });
         Route::apiResource('branches', BranchController::class);
+        Route::apiResource('shiptypes', ShipTypeController::class);
+        Route::apiResource('shipclasses', ShipClassController::class);
+        Route::apiResource('chaptertypes', ChapterTypeController::class);
+        Route::apiResource('chapters', ChapterController::class);
+        Route::get('/chapters/{chapter}/members')->uses([ChapterController::class, 'members']);
         Route::apiResource('users', UserController::class);
     });
 });

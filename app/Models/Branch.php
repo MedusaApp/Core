@@ -37,17 +37,28 @@ class Branch extends Model
      * )
      */
 
-     /**
-      * Is civilian?
-      * @var boolean
-      * @OA\Property(
-      *     property="is_civilian",
-      *     type="boolean",
-      *     description="Is this branch a civilian branch?"
-      * )
-      */
+    /**
+     * Is civilian?
+     * @var boolean
+     * @OA\Property(
+     *     property="is_civilian",
+     *     type="boolean",
+     *     description="Is this branch a civilian branch?"
+     * )
+     */
 
-    public function users() {
+    public function users()
+    {
         return $this->hasMany(User::class);
+    }
+
+    public function shipClasses()
+    {
+        return $this->belongsToMany(ShipClass::class);
+    }
+
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class);
     }
 }

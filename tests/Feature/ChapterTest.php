@@ -3,50 +3,50 @@
 namespace Tests\Feature;
 
 use App\Models\Role;
-use App\Models\Branch;
+use App\Models\Chapter;
 use App\Models\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class BranchTest extends TestCase
+class ChapterTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_user_login_required_for_branch_create()
+    public function test_user_login_required_for_chapter_create()
     {
-        $response = $this->post('/api/v1/branches', []);
+        $response = $this->post('/api/v1/chapters', []);
 
         $response->assertForbidden();
     }
 
-    public function test_user_login_required_for_branch_details()
+    public function test_user_login_required_for_chapter_details()
     {
-        $branch = Branch::where('abbreviation', 'RMN')->first();
+        $chapter = Chapter::first();
 
-        $response = $this->get('/api/v1/branches/' . $branch->id);
+        $response = $this->get('/api/v1/chapters/' . $chapter->id);
 
         $response->assertForbidden();
     }
 
-    public function test_user_login_required_for_branch_delete()
+    public function test_user_login_required_for_chapter_delete()
     {
-        $branch = Branch::where('abbreviation', 'RMN')->first();
+        $chapter = Chapter::first();
 
-        $response = $this->delete('/api/v1/branches/' . $branch->id);
+        $response = $this->delete('/api/v1/chapters/' . $chapter->id);
 
         $response->assertForbidden();
     }
 
-    public function test_user_login_required_for_branch_update()
+    public function test_user_login_required_for_chapter_update()
     {
-        $branch = Branch::where('abbreviation', 'RMN')->first();
+        $chapter = Chapter::first();
 
-        $response = $this->put('/api/v1/branches/' . $branch->id);
+        $response = $this->put('/api/v1/chapters/' . $chapter->id);
 
         $response->assertForbidden();
     }
 
-    public function test_member_can_see_branches()
+    public function test_member_can_see_chapters()
     {
         $user = User::factory()->create();
         $memberRole = Role::where('slug', 'member')->first();
@@ -56,12 +56,12 @@ class BranchTest extends TestCase
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->get('/api/v1/branches');
+        ])->get('/api/v1/chapters');
 
         $response->assertOk();
     }
 
-    public function test_member_cannot_create_branches()
+    public function test_member_cannot_create_chapters()
     {
         $user = User::factory()->create();
         $memberRole = Role::where('slug', 'member')->first();
@@ -71,46 +71,46 @@ class BranchTest extends TestCase
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->post('/api/v1/branches', []);
+        ])->post('/api/v1/chapters', []);
 
         $response->assertForbidden();
     }
 
-    public function test_member_cannot_delete_branches()
+    public function test_member_cannot_delete_chapters()
     {
         $user = User::factory()->create();
         $memberRole = Role::where('slug', 'member')->first();
         $user->roles()->attach($memberRole);
 
-        $branch = Branch::where('abbreviation', 'RMN')->first();
+        $chapter = Chapter::first();
 
         $token = auth()->login($user);
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->delete('/api/v1/branches/' . $branch->id);
+        ])->delete('/api/v1/chapters/' . $chapter->id);
 
         $response->assertForbidden();
     }
 
-    public function test_member_cannot_update_branches()
+    public function test_member_cannot_update_chapters()
     {
         $user = User::factory()->create();
         $memberRole = Role::where('slug', 'member')->first();
         $user->roles()->attach($memberRole);
 
-        $branch = Branch::where('abbreviation', 'RMN')->first();
+        $chapter = Chapter::first();
 
         $token = auth()->login($user);
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->put('/api/v1/branches/' . $branch->id);
+        ])->put('/api/v1/chapters/' . $chapter->id);
 
         $response->assertForbidden();
     }
 
-    public function test_admin_can_see_branches()
+    public function test_admin_can_see_chapters()
     {
         $user = User::factory()->create();
         $adminRole = Role::where('slug', 'admin')->first();
@@ -120,12 +120,12 @@ class BranchTest extends TestCase
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->get('/api/v1/branches');
+        ])->get('/api/v1/chapters');
 
         $response->assertOk();
     }
 
-    public function test_admin_can_create_branches()
+    public function test_admin_can_create_chapters()
     {
         $user = User::factory()->create();
         $adminRole = Role::where('slug', 'admin')->first();
@@ -135,45 +135,59 @@ class BranchTest extends TestCase
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->post('/api/v1/branches', [
-            'abbreviation' => 'TST',
-            'name' => 'Test Branch',
-            'is_civilian' => false,
+        ])->post('/api/v1/chapters', [
+            'name' => 'Test Chapter',
+            'hull_number' => '1110111',
+            'is_joinable' => true,
+            'is_active' => true,
+            'branch_id' => 1,
+            'ship_class_id' => 1,
+            'chapter_type_id' => 1,
+            'commission_date' => date('Y-m-d'),
         ]);
 
         $response->assertOk();
     }
 
-    public function test_admin_can_delete_branches()
+    public function test_admin_can_delete_chapters()
     {
         $user = User::factory()->create();
         $adminRole = Role::where('slug', 'admin')->first();
         $user->roles()->attach($adminRole);
 
-        $branch = Branch::factory()->create();
+        $chapter = Chapter::factory()->create();
 
         $token = auth()->login($user);
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->delete('/api/v1/branches/' . $branch->id);
+        ])->delete('/api/v1/chapters/' . $chapter->id);
 
         $response->assertOk();
     }
 
-    public function test_admin_can_update_branches()
+    public function test_admin_can_update_chapters()
     {
         $user = User::factory()->create();
         $adminRole = Role::where('slug', 'admin')->first();
         $user->roles()->attach($adminRole);
 
-        $branch = Branch::factory()->create();
+        $chapter = Chapter::factory()->create();
 
         $token = auth()->login($user);
 
         $response = $this->withHeaders([
             'Authorization' => "bearer $token",
-        ])->put('/api/v1/branches/' . $branch->id);
+        ])->put('/api/v1/chapters/' . $chapter->id, [
+            'name' => 'Test Chapter',
+            'hull_number' => '1110111',
+            'is_joinable' => true,
+            'is_active' => true,
+            'branch_id' => 1,
+            'ship_class_id' => 1,
+            'chapter_type_id' => 1,
+            'commission_date' => date('Y-m-d'),
+        ]);
 
         $response->assertOk();
     }

@@ -5,9 +5,12 @@ namespace Tests\Feature;
 use App\Models\Role;
 use App\Models\User;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_user_login_required_for_user_create()
     {
         $response = $this->post('/api/v1/users');

@@ -216,6 +216,372 @@
                 ]
             }
         },
+        "/api/v1/chapters": {
+            "get": {
+                "tags": [
+                    "Chapter"
+                ],
+                "summary": "Get list of chapters",
+                "description": "Returns a list of chapters ordered by name.",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Chapter"
+                ],
+                "summary": "Create a new chapter",
+                "description": "Creates a new chapter",
+                "operationId": "store",
+                "requestBody": {
+                    "request": "Chapter Type",
+                    "description": "Chapter object to be added",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Chapter"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "chapter successfully created"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/chapters/{id}": {
+            "get": {
+                "tags": [
+                    "Chapter"
+                ],
+                "summary": "Retrieve the given chapter",
+                "description": "Retrieves the given chapter",
+                "operationId": "show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the chapter to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "chapter retrieved"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Chapter"
+                ],
+                "summary": "Update the given chapter",
+                "description": "Updates the given chapter",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the chapter to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Chapter",
+                    "description": "Chapter object to be modified",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Chapter"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "chapter successfully modified"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Chapter"
+                ],
+                "summary": "Delete the given chapter",
+                "description": "Deletes the given chapter. Note: this is a hard delete.",
+                "operationId": "destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the chapter to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "chapter successfully deleted"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/chapters/{id}/members": {
+            "get": {
+                "tags": [
+                    "Chapter"
+                ],
+                "summary": "Retrieve the given chapter's member list",
+                "description": "Retrieves the given chapter's member list",
+                "operationId": "members",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the chapter to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "chapter member list retrieved"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/chaptertypes": {
+            "get": {
+                "tags": [
+                    "Chapter Types"
+                ],
+                "summary": "Get list of chapter types",
+                "description": "Returns a list of chapter types ordered by abbreviation.",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Chapter Types"
+                ],
+                "summary": "Create a new chapter type",
+                "description": "Creates a new chapter type",
+                "operationId": "store",
+                "requestBody": {
+                    "request": "Chapter Type",
+                    "description": "Chapter type object to be added",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChapterType"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "chapter type successfully created"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/chaptertypes/{id}": {
+            "get": {
+                "tags": [
+                    "Chapter Types"
+                ],
+                "summary": "Retrieve the given chapter type",
+                "description": "Retrieves the given chapter type",
+                "operationId": "show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the chapter type to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "chapter type retrieved"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Chapter Types"
+                ],
+                "summary": "Update the given chapter type",
+                "description": "Updates the given chapter type",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the chapter type to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "ChapterType",
+                    "description": "Chapter type object to be modified",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChapterType"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "chapter type successfully modified"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Chapter Types"
+                ],
+                "summary": "Delete the given chapter type",
+                "description": "Deletes the given chapter type. Note: this is a hard delete.",
+                "operationId": "destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the chapter type to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "chapter type successfully deleted"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
         "/api/v1/countries": {
             "get": {
                 "tags": [
@@ -281,6 +647,338 @@
                         "description": "successful operation"
                     }
                 }
+            }
+        },
+        "/api/v1/shipclasses": {
+            "get": {
+                "tags": [
+                    "Ship Classes"
+                ],
+                "summary": "Get list of ship classes",
+                "description": "Returns a list of ship classes ordered by abbreviation.",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Ship Classes"
+                ],
+                "summary": "Create a new ship class",
+                "description": "Creates a new ship class",
+                "operationId": "store",
+                "requestBody": {
+                    "request": "Ship Class",
+                    "description": "Ship class object to be added",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShipClass"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "ship class successfully created"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/shipclasses/{id}": {
+            "get": {
+                "tags": [
+                    "Ship Classes"
+                ],
+                "summary": "Retrieve the given ship class",
+                "description": "Retrieves the given ship class",
+                "operationId": "show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the ship class to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ship class retrieved"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Ship Classes"
+                ],
+                "summary": "Update the given ship class",
+                "description": "Updates the given ship class",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the ship class to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "ShipClass",
+                    "description": "Ship class object to be modified",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShipClass"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "ship class successfully modified"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Ship Classes"
+                ],
+                "summary": "Delete the given ship class",
+                "description": "Deletes the given ship class. Note: this is a hard delete.",
+                "operationId": "destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the ship class to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ship class successfully deleted"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/shiptypes": {
+            "get": {
+                "tags": [
+                    "Ship Types"
+                ],
+                "summary": "Get list of ship types",
+                "description": "Returns a list of ship types ordered by abbreviation.",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Ship Types"
+                ],
+                "summary": "Create a new ship type",
+                "description": "Creates a new ship type",
+                "operationId": "store",
+                "requestBody": {
+                    "request": "Ship Type",
+                    "description": "Ship type object to be added",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShipType"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "ship type successfully created"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/shiptypes/{id}": {
+            "get": {
+                "tags": [
+                    "Ship Types"
+                ],
+                "summary": "Retrieve the given ship type",
+                "description": "Retrieves the given ship type",
+                "operationId": "show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the ship type to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ship type retrieved"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Ship Types"
+                ],
+                "summary": "Update the given ship type",
+                "description": "Updates the given ship type",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the ship type to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "ShipType",
+                    "description": "Ship type object to be modified",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ShipType"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "ship type successfully modified"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Ship Types"
+                ],
+                "summary": "Delete the given ship type",
+                "description": "Deletes the given ship type. Note: this is a hard delete.",
+                "operationId": "destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the ship type to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ship type successfully deleted"
+                    },
+                    "403": {
+                        "description": "permission denied"
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         },
         "/api/v1/users": {
@@ -453,6 +1151,7 @@
     "components": {
         "schemas": {
             "Branch": {
+                "description": "Class Branch",
                 "properties": {
                     "abbreviation": {
                         "description": "The abbreviated version of the branch's name",
@@ -469,7 +1168,148 @@
                 },
                 "type": "object"
             },
+            "Chapter": {
+                "description": "Class Chapter",
+                "properties": {
+                    "name": {
+                        "description": "The name of the chapter",
+                        "type": "string"
+                    },
+                    "is_active": {
+                        "description": "Is this chapter active?",
+                        "type": "boolean"
+                    },
+                    "chapter_type_id": {
+                        "description": "The type of chapter",
+                        "type": "integer"
+                    },
+                    "hull_number": {
+                        "description": "The hull number for the chapter",
+                        "type": "string"
+                    },
+                    "is_joinable": {
+                        "description": "Is this chapter joinable?",
+                        "type": "boolean"
+                    },
+                    "ship_class_id": {
+                        "description": "The ship class for the chapter",
+                        "type": "integer"
+                    },
+                    "branch_id": {
+                        "description": "The branch that the chapter belongs to",
+                        "type": "integer"
+                    },
+                    "chapter_id": {
+                        "description": "If this belongs to another chapter, this is its ID",
+                        "type": "integer"
+                    },
+                    "commission_date": {
+                        "description": "The date the chapter was commissioned on",
+                        "type": "string"
+                    },
+                    "decommission_date": {
+                        "description": "The date the chapter was decommissioned on",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ChapterType": {
+                "description": "Class ChapterType",
+                "properties": {
+                    "has_command_triad": {
+                        "description": "Whether this chapter type has a command triad or not",
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "description": "The full name of the chapter type",
+                        "type": "string"
+                    },
+                    "slug": {
+                        "description": "The slug of the chapter type",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Permission": {
+                "description": "Class Permission",
+                "properties": {
+                    "name": {
+                        "description": "Permission name",
+                        "type": "string"
+                    },
+                    "slug": {
+                        "description": "Unique identifying slug for the permission",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Role": {
+                "description": "Class Role",
+                "properties": {
+                    "name": {
+                        "description": "Role name",
+                        "type": "string"
+                    },
+                    "slug": {
+                        "description": "Unique identifying slug for the role",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ShipClass": {
+                "description": "Class ShipClass",
+                "properties": {
+                    "name": {
+                        "description": "The full name of the ship class",
+                        "type": "string"
+                    },
+                    "image_url": {
+                        "description": "A URL to an image of the ship class",
+                        "type": "string"
+                    },
+                    "crew_max": {
+                        "description": "The maximum crew",
+                        "type": "integer"
+                    },
+                    "crew_min": {
+                        "description": "The minimum crew",
+                        "type": "integer"
+                    },
+                    "officer_min": {
+                        "description": "The minimum officer count",
+                        "type": "integer"
+                    },
+                    "type_order": {
+                        "description": "The type order",
+                        "type": "integer"
+                    },
+                    "ship_type_id": {
+                        "description": "The ID of the ship type",
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "ShipType": {
+                "description": "Class ShipType",
+                "properties": {
+                    "abbreviation": {
+                        "description": "The abbreviated version of the ship type's name",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The full name of the ship type",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
             "User": {
+                "description": "Class User",
                 "properties": {
                     "first_name": {
                         "description": "First name",
@@ -530,6 +1370,10 @@
                     "branch_id": {
                         "description": "ID of the branch the user belongs to",
                         "type": "integer"
+                    },
+                    "chapter_id": {
+                        "description": "ID of the chapter the user belongs to",
+                        "type": "integer"
                     }
                 },
                 "type": "object"
@@ -554,8 +1398,24 @@
             "description": "Branch control routes."
         },
         {
+            "name": "Chapter",
+            "description": "Chapter control routes."
+        },
+        {
+            "name": "Chapter Types",
+            "description": "Chapter type control routes."
+        },
+        {
             "name": "Countries",
             "description": "Routes for standardizing country data. These are not protected by authorization."
+        },
+        {
+            "name": "Ship Classes",
+            "description": "Ship class control routes."
+        },
+        {
+            "name": "Ship Types",
+            "description": "Ship type control routes."
         },
         {
             "name": "Users",

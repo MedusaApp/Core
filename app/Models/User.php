@@ -25,7 +25,7 @@ class User extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    protected $with = ['branch'];
+    protected $with = ['branch', 'chapter'];
 
     /**
      * First name
@@ -199,5 +199,19 @@ class User extends Authenticatable implements JWTSubject
     public function branch()
     {
         return $this->belongsTo(Branch::class);
+    }
+
+    /**
+     * Chapter ID
+     * @var integer
+     * @OA\Property(
+     *     property="chapter_id",
+     *     type="integer",
+     *     description="ID of the chapter the user belongs to"
+     * )
+     */
+    public function chapter()
+    {
+        return $this->belongsTo(Chapter::class);
     }
 }

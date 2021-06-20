@@ -21,9 +21,19 @@ class BranchSeeder extends Seeder
                 'is_civilian' => false,
             ],
             [
+                'abbreviation' => 'RMACS',
+                'name' => 'Royal Manticoran Astro-Control Service',
+                'is_civilian' => true,
+            ],
+            [
                 'abbreviation' => 'RMMC',
                 'name' => 'Royal Manticoran Marine Corp',
                 'is_civilian' => false,
+            ],
+            [
+                'abbreviation' => 'RMMM',
+                'name' => 'Royal Manticoran Merchant Marine',
+                'is_civilian' => true,
             ],
             [
                 'abbreviation' => 'RMN',
